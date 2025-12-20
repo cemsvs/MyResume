@@ -16,14 +16,6 @@
 
 ---
 
-/* ## 📸 Preview
-
-<div align="center">
-  <img src="assets/preview.png" alt="Portfolio Preview" width="80%">
-</div> */
-
----
-
 ## ✨ Features
 
 ### 🎨 Design
