@@ -4,197 +4,231 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hayri Cem Sivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <div class="grain"></div>
+
   <div class="container">
+
     <header>
-      <div class="header-content">
-        <div class="profile-section">
-          <img src="./assets/ProfilePhotov2.jpeg" alt="Cem Sivas" class="profile-image" onclick="window.location.href='./public/myScreenshots.html'">
-          <div class="profile-info">
-            <h1>Hayri Cem Sivas</h1>
-            <p class="tagline">Aspiring Computer Programmer | Fast Learner | Passionate about Technology</p>
+      <div class="header-inner">
+        <img
+          src="./assets/ProfilePhotov2.jpeg"
+          alt="Cem Sivas"
+          class="profile-img"
+          onclick="window.location.href='./public/myScreenshots.html'"
+        >
+        <div class="header-text">
+          <p class="header-pre">hey, i'm</p>
+          <h1>Cem Sivas</h1>
+          <p class="tagline">Computer Programming student · Solo Game Dev · Content Creator</p>
+          <div class="header-badges">
+            <span class="badge badge-green">Available for Work</span>
+            <span class="badge badge-amber">Samsun, Turkey</span>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Stats Section -->
-    <section class="section">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span class="stat-number" data-target="20">0</span>
-          <span class="stat-label">Years Old</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number" data-target="7">0+</span>
-          <span class="stat-label">Skills</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number" data-target="3">0+</span>
-          <span class="stat-label">Projects</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number" data-target="100">0%</span>
-          <span class="stat-label">Passion</span>
-        </div>
+    <section class="stats-row">
+      <div class="stat">
+        <span class="stat-n" data-target="20">0</span>
+        <span class="stat-l">years old</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n" data-target="5" data-suffix="+">0</span>
+        <span class="stat-l">skills</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n" data-target="3" data-suffix="+">0</span>
+        <span class="stat-l">projects</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n" data-target="7500" data-suffix="+">0</span>
+        <span class="stat-l">yt subs</span>
       </div>
     </section>
 
     <main>
-      <section class="section">
+
+      <section class="section" id="about">
         <div class="section-card">
-          <h2>About Me</h2>
-          <p>I'm a 20-year-old fast learner with a passion for learning new things. I have a solid foundation in basic coding, game development, web development, and social media content creation. Currently pursuing my Associate Degree in Computer Programming, I'm eager to transform innovative ideas into reality through code.</p>
+          <h2>About</h2>
+          <p>I'm a 20-year-old developer from Samsun, Turkey, studying Computer Programming at Ondokuz Mayıs University. I build things across a pretty wide range — game dev, desktop apps, web — and I learn fast. My biggest project right now is VeinLight, a survival horror indie game I've been making solo for over a year.</p>
+          <p style="margin-top:1rem">When I'm not coding I'm usually gaming (Cyberpunk 2077 mostly), editing videos for my YouTube channel, or watching a movie.</p>
         </div>
       </section>
 
-      <section class="section">
-        <div class="section-card">
-          <h2>Education</h2>
-          <div class="timeline-item">
-            <h3>Ondokuz Mayıs University</h3>
-            <p class="timeline-date">September 2024 – Present</p>
-            <p>Associate Degree in Computer Programming</p>
-            <p>Samsun, Turkey</p>
+      <!-- VEINLIGHT FEATURED -->
+      <section class="section" id="veinlight">
+        <div class="veinlight-card">
+          <div class="vl-eyebrow">
+            <span class="badge badge-ember">Featured Project</span>
+            <span class="badge badge-outline">Alpha · Active Dev</span>
+          </div>
+
+          <div class="vl-main">
+            <div class="vl-info">
+              <h2 class="vl-title">VeinLight</h2>
+              <p class="vl-subtitle">Survival Horror Roguelite · Solo Dev · Windows</p>
+              <p class="vl-tagline">"Scream to survive. Mine to live."</p>
+              <p class="vl-desc">
+                You're alone in the mines — or so you think. Mine resources to fill a daily quota, manage your lantern, and if the darkness closes in your last defense is your own voice: speaking into your microphone pushes back the dark. Miss your quota and the Cave Troll wakes up. Solo-developed in Unity. Currently v0.8.4.
+              </p>
+              <div class="vl-tags">
+                <span class="vtag">Unity</span>
+                <span class="vtag">C#</span>
+                <span class="vtag">Roguelite</span>
+                <span class="vtag">Voice Detection</span>
+                <span class="vtag">Pixel Art</span>
+              </div>
+              <div class="vl-ctas">
+                <a href="https://cemgo.itch.io/veinlight" target="_blank" class="btn-primary">Download Alpha (free)</a>
+                <a href="https://store.steampowered.com/app/4291310/VeinLight" target="_blank" class="btn-secondary-ember">Wishlist on Steam ↗</a>
+              </div>
+            </div>
+            <div class="vl-feature-box">
+              <div class="vl-mechanic">
+                <span class="vl-mic-icon">🎤</span>
+                <p class="vl-mechanic-label">Unique Mechanic</p>
+                <p class="vl-mechanic-text">Your real voice controls the game. Speak or sing into your mic to push back the toxic darkness when your lantern fails.</p>
+              </div>
+              <div class="vl-stat-mini">
+                <div>
+                  <span class="vl-n">v0.8.4</span>
+                  <span class="vl-nl">latest build</span>
+                </div>
+                <div>
+                  <span class="vl-n">Steam</span>
+                  <span class="vl-nl">wishlist open</span>
+                </div>
+                <div>
+                  <span class="vl-n">1 dev</span>
+                  <span class="vl-nl">solo project</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section class="section">
+      <!-- OTHER PROJECTS -->
+      <section class="section" id="projects">
         <div class="section-card">
-          <h2>Featured Projects</h2>
-          <div class="projects-grid">
-            <div class="project-card" onclick="window.open('https://cemgo.itch.io/', '_blank')">
-              <span class="project-icon">🎮</span>
-              <h3 class="project-title">Game Development</h3>
-              <p class="project-description">Unity-based FPS thriller and adventure games. Check out VeinLight and other projects on itch.io.</p>
-              <div class="project-tags">
-                <span class="project-tag">Unity</span>
-                <span class="project-tag">C#</span>
-                <span class="project-tag">Game Design</span>
-              </div>
-            </div>
+          <h2>Other Projects</h2>
+          <div class="proj-grid">
 
-            <div class="project-card" onclick="window.open('https://github.com/cemsvs', '_blank')">
-              <span class="project-icon">💻</span>
-              <h3 class="project-title">Software Projects</h3>
-              <p class="project-description">Desktop applications and frameworks including Erasmus Security Fund Tracker and Save System Framework.</p>
-              <div class="project-tags">
-                <span class="project-tag">C#</span>
-                <span class="project-tag">.NET</span>
-                <span class="project-tag">Python</span>
+            <a href="https://github.com/cemsvs" target="_blank" class="proj-card">
+              <span class="proj-icon">💻</span>
+              <div>
+                <h3>Software</h3>
+                <p>Desktop apps built in C# and Python — includes an Erasmus Security Fund Tracker and a Save System Framework for Unity.</p>
+                <div class="proj-tags">
+                  <span>C#</span><span>.NET</span><span>Python</span>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="project-card" onclick="window.open('https://www.youtube.com/@CemOver', '_blank')">
-              <span class="project-icon">🎬</span>
-              <h3 class="project-title">Content Creation</h3>
-              <p class="project-description">YouTube channel with 7.5K+ subscribers and 1.8M+ views, creating gaming content and video essays.</p>
-              <div class="project-tags">
-                <span class="project-tag">Video Editing</span>
-                <span class="project-tag">YouTube</span>
-                <span class="project-tag">Community</span>
+            <a href="https://www.youtube.com/@CemOver" target="_blank" class="proj-card">
+              <span class="proj-icon">🎬</span>
+              <div>
+                <h3>CemOver — YouTube</h3>
+                <p>Gaming content and video essays. 7.5K+ subscribers, 1.8M+ views. Editing, scripting, community — all solo.</p>
+                <div class="proj-tags">
+                  <span>Video Editing</span><span>Scripting</span><span>Community</span>
+                </div>
               </div>
-            </div>
+            </a>
+
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="skills">
         <div class="section-card">
           <h2>Skills</h2>
           <div class="skills-grid">
             <div class="skill-item">
               <div class="skill-header">
-                <span class="skill-name">Organizational Skills</span>
-                <span class="skill-level">80%</span>
+                <span class="skill-name">Organizational</span>
+                <span class="skill-pct">80%</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-skill="80"></div>
-              </div>
+              <div class="skill-track"><div class="skill-fill" data-skill="80"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
-                <span class="skill-name">English</span>
-                <span class="skill-level">65%</span>
+                <span class="skill-name">C# / Python</span>
+                <span class="skill-pct">45%</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-skill="65"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">C/Py Programming</span>
-                <span class="skill-level">45%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-skill="40"></div>
-              </div>
+              <div class="skill-track"><div class="skill-fill" data-skill="45"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-name">Photoshop</span>
-                <span class="skill-level">50%</span>
+                <span class="skill-pct">50%</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-skill="50"></div>
-              </div>
+              <div class="skill-track"><div class="skill-fill" data-skill="50"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-name">Unity</span>
-                <span class="skill-level">45%</span>
+                <span class="skill-pct">55%</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-skill="45"></div>
-              </div>
+              <div class="skill-track"><div class="skill-fill" data-skill="55"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
-                <span class="skill-name">Web Development</span>
-                <span class="skill-level">50%</span>
+                <span class="skill-name">Video Editing</span>
+                <span class="skill-pct">65%</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-skill="50"></div>
-              </div>
+              <div class="skill-track"><div class="skill-fill" data-skill="65"></div></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="education">
         <div class="section-card">
-          <h2>Work Experience</h2>
-          <p>Currently seeking opportunities to gain hands-on experience in the tech industry. Open to internships and entry-level positions where I can apply my skills and continue learning.</p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-card">
-          <h2>Get In Touch</h2>
-          <p>I'm always excited to connect with fellow developers, potential collaborators, or anyone interested in technology. Feel free to reach out!</p>
-          <div class="button-group">
-            <a href="./public/myHobbies.html" class="btn btn-secondary">
-              <span>🎮 My Hobbies</span>
-            </a>
-            <a href="./public/contact.html" class="btn">
-              <span>✉️ Contact Me</span>
-            </a>
+          <h2>Education</h2>
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div>
+              <h3>Ondokuz Mayıs University</h3>
+              <p class="edu-sub">Associate Degree in Computer Programming · Sep 2024 – Present</p>
+              <p class="edu-loc">Samsun, Turkey</p>
+            </div>
           </div>
         </div>
       </section>
+
+      <section class="section" id="contact">
+        <div class="section-card contact-section">
+          <h2>Get in Touch</h2>
+          <p>Always happy to talk about game dev, collabs, or just tech in general.</p>
+          <div class="btn-row">
+            <a href="./public/myHobbies.html" class="btn-ghost">🎮 My Hobbies</a>
+            <a href="./public/contact.html" class="btn-primary">✉️ Contact Me</a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer>
-      <p>© 2024 Cem Sivas. All rights reserved. | Version 2.5</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with passion for technology 💜</p>
+      <p>© 2026 Cem Sivas — v3.0</p>
+      <p class="footer-sub">built from scratch, iterated with care</p>
     </footer>
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
