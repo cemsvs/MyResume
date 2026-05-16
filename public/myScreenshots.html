@@ -1,428 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk 2077 Screenshots - Cem Sivas</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshots — Cem Sivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --primary-bg: #0a0e27;
-            --secondary-bg: #1a1f3a;
-            --accent-color: #6366f1;
-            --accent-hover: #818cf8;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --card-bg: rgba(30, 41, 59, 0.5);
-            --border-color: rgba(99, 102, 241, 0.2);
-        }
+    :root {
+      --bg: #0b0d0c; --surface: #131714; --card: #181d1b;
+      --border: rgba(255,255,255,0.06); --border-md: rgba(255,255,255,0.10);
+      --ember: #e07540; --ember-dim: rgba(224,117,64,0.12); --ember-mid: rgba(224,117,64,0.30);
+      --text: #d8d2cb; --text-muted: #6c7a75;
+      --radius-md: 12px; --radius-lg: 18px;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-            color: var(--text-primary);
-            min-height: 100vh;
-            line-height: 1.6;
-            position: relative;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 100vh;
-        }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; border: 1px solid var(--border);
+      border-radius: 999px; padding: 0.5rem 1rem; margin-bottom: 3rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-btn:hover { color: var(--text); border-color: var(--border-md); }
 
-        .back-button {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            padding: 1rem 1.5rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .page-header { margin-bottom: 2rem; }
+    .page-header h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em;
+      color: var(--text); margin-bottom: 0.4rem;
+    }
+    .page-header p { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; font-style: italic; }
 
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.3);
-            border-color: var(--accent-color);
-        }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
 
-        .header {
-            text-align: center;
-            padding: 5rem 0 3rem;
-            animation: fadeInUp 0.8s ease;
-        }
+    .gal-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
 
-        .header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
+    .gal-item:hover { border-color: var(--border-md); transform: translateY(-3px); }
 
-        .header p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-        }
+    .gal-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
 
-        .decorative-line {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-            margin: 3rem auto;
-            border-radius: 2px;
-            max-width: 600px;
-        }
+    .gal-item:hover img { transform: scale(1.03); }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
+    .gal-caption {
+      padding: 0.75rem 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
 
-        .gallery-item {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease both;
-        }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .lightbox.active { display: flex; }
 
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
-        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
-        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+    .lb-img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: var(--radius-md);
+      object-fit: contain;
+    }
 
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
+    .lb-close {
+      position: fixed; top: 1.5rem; right: 1.5rem;
+      width: 40px; height: 40px;
+      background: var(--card); border: 1px solid var(--border-md);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text); font-size: 1.1rem;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: var(--ember-dim); }
 
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
-            border-color: var(--accent-color);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            margin-top: 1rem;
-            padding: 0.5rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90vh;
-            position: relative;
-            animation: zoomIn 0.3s ease;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            z-index: 2001;
-        }
-
-        .lightbox-close:hover {
-            background: var(--accent-color);
-            transform: rotate(90deg);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .back-button {
-                top: 1rem;
-                left: 1rem;
-                padding: 0.8rem 1.2rem;
-            }
-
-            .header {
-                padding: 4rem 0 2rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .header p {
-                font-size: 1rem;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .lightbox-content {
-                max-width: 95%;
-            }
-
-            .lightbox-close {
-                top: 1rem;
-                right: 1rem;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .gallery-item {
-                padding: 0.75rem;
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr; }
+      .container { padding: 2rem 1rem 3rem; }
+    }
+  </style>
 </head>
 <body>
-    <a href="../index.html" class="back-button">
-        <span>←</span> Back to Portfolio
-    </a>
+  <div class="container">
+    <a href="../index.html" class="back-btn">← Back to Portfolio</a>
 
-    <div class="container">
-        <div class="header">
-            <h1>Cyberpunk 2077 Screenshots</h1>
-            <p>A collection of stunning moments captured in Night City</p>
-        </div>
-
-        <div class="decorative-line"></div>
-
-        <div class="gallery">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_12032025_202218.png" alt="A beautiful Night City view">
-                <div class="gallery-caption">A beautiful Night City view</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_14032025_192503.png" alt="My character poses holding a sword">
-                <div class="gallery-caption">My character poses holding a sword</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_16032025_011715.png" alt="A beautiful concert image">
-                <div class="gallery-caption">A beautiful concert image</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_18032025_014916.png" alt="A view of the city in the distance, taken during the daytime">
-                <div class="gallery-caption">A view of the city in the distance, taken during the daytime</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_18032025_014941.png" alt="A photo of my game character posing where the previous picture was taken">
-                <div class="gallery-caption">A photo of my game character posing where the previous picture was taken</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_18032025_031920.png" alt="View of the city from a balcony in a luxury residence">
-                <div class="gallery-caption">View of the city from a balcony in a luxury residence</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_19032025_010126.png" alt="Character in the middle of 2 famous people taking a photo">
-                <div class="gallery-caption">Character in the middle of 2 famous people taking a photo</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="../assets/photomode_21032025_233350.png" alt="A frontal photo of my character riding a motorcycle">
-                <div class="gallery-caption">A frontal photo of my character riding a motorcycle</div>
-            </div>
-        </div>
+    <div class="page-header">
+      <h1>Night City Gallery</h1>
+      <p>Screenshots from Cyberpunk 2077 — photo mode is its own kind of art</p>
     </div>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <div class="lightbox-close">✕</div>
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <img id="lightbox-img" src="" alt="">
-        </div>
+    <div class="gallery">
+      <div class="gal-item" data-src="../assets/photomode_12032025_202218.png">
+        <img src="../assets/photomode_12032025_202218.png" alt="Night City view" loading="lazy">
+        <div class="gal-caption">A beautiful Night City view</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_14032025_192503.png">
+        <img src="../assets/photomode_14032025_192503.png" alt="Character posing with sword" loading="lazy">
+        <div class="gal-caption">My character posing with a sword</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_16032025_011715.png">
+        <img src="../assets/photomode_16032025_011715.png" alt="Concert scene" loading="lazy">
+        <div class="gal-caption">A beautiful concert scene</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_18032025_014916.png">
+        <img src="../assets/photomode_18032025_014916.png" alt="City in the distance, daytime" loading="lazy">
+        <div class="gal-caption">The city in the distance, daytime</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_18032025_014941.png">
+        <img src="../assets/photomode_18032025_014941.png" alt="Character posing at the same spot" loading="lazy">
+        <div class="gal-caption">Same spot, different angle</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_18032025_031920.png">
+        <img src="../assets/photomode_18032025_031920.png" alt="Balcony view of the city" loading="lazy">
+        <div class="gal-caption">Balcony view from a luxury residence</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_19032025_010126.png">
+        <img src="../assets/photomode_19032025_010126.png" alt="Character with famous people" loading="lazy">
+        <div class="gal-caption">Character between two iconic faces</div>
+      </div>
+      <div class="gal-item" data-src="../assets/photomode_21032025_233350.png">
+        <img src="../assets/photomode_21032025_233350.png" alt="Riding a motorcycle" loading="lazy">
+        <div class="gal-caption">Frontal shot on a motorcycle</div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function openLightbox(element) {
-            const img = element.querySelector('img');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+  <div class="lightbox" id="lightbox">
+    <div class="lb-close" id="lb-close">✕</div>
+    <img class="lb-img" id="lb-img" src="" alt="">
+  </div>
 
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+  <script>
+    var lightbox = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lb-img');
 
-        // ESC tuşu ile kapatma
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
+    document.querySelectorAll('.gal-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        lbImg.src = this.getAttribute('data-src');
+        lbImg.alt = this.querySelector('img').alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
 
-        // Sayfa yüklendiğinde animasyonları başlat
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            galleryItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-        });
-    </script>
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>
