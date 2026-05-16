@@ -1,435 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Cem Sivas</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Cem Sivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --primary-bg: #0a0e27;
-            --secondary-bg: #1a1f3a;
-            --accent-color: #6366f1;
-            --accent-hover: #818cf8;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --card-bg: rgba(30, 41, 59, 0.5);
-            --border-color: rgba(99, 102, 241, 0.2);
-        }
+    :root {
+      --bg: #0b0d0c; --surface: #131714; --card: #181d1b;
+      --border: rgba(255,255,255,0.06); --border-md: rgba(255,255,255,0.10);
+      --ember: #e07540; --ember-dim: rgba(224,117,64,0.12); --ember-mid: rgba(224,117,64,0.30);
+      --teal: #3a9178; --text: #d8d2cb; --text-muted: #6c7a75; --text-dim: #3a4642;
+      --radius-md: 12px; --radius-lg: 18px;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--primary-bg);
-            background-image: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-            color: var(--text-primary);
-            min-height: 100vh;
-            line-height: 1.6;
-            position: relative;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      margin-bottom: 3rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
 
-        .back-button {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            padding: 1rem 1.5rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .back-btn:hover { color: var(--text); border-color: var(--border-md); }
 
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.3);
-            border-color: var(--accent-color);
-        }
+    .page-header { margin-bottom: 2rem; }
 
-        .contact-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 3rem;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            animation: fadeInUp 0.8s ease;
-        }
+    .page-header h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
-        .contact-header {
-            margin-bottom: 3rem;
-        }
+    .page-header p { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; }
 
-        .contact-header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
 
-        .contact-header p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 400px;
-            margin: 0 auto;
-        }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.3rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
+    .contact-item:hover { border-color: var(--border-md); background: #1d2220; }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease both;
-        }
+    .ci-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--ember-dim);
+      border: 1px solid var(--ember-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
 
-        .contact-item:nth-child(1) { animation-delay: 0.2s; }
-        .contact-item:nth-child(2) { animation-delay: 0.3s; }
-        .contact-item:nth-child(3) { animation-delay: 0.4s; }
-        .contact-item:nth-child(4) { animation-delay: 0.5s; }
-        .contact-item:nth-child(5) { animation-delay: 0.6s; }
+    .ci-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
 
-        .contact-item:hover {
-            transform: translateY(-5px);
-            background: rgba(99, 102, 241, 0.2);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
-        }
+    .ci-value {
+      font-size: 0.93rem;
+      color: var(--text);
+      font-weight: 500;
+    }
 
-        .contact-icon {
-            font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
+    .ci-value.accent { color: var(--ember); }
 
-        .contact-details {
-            flex: 1;
-            text-align: left;
-        }
+    .copy-note {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-align: center;
+      font-style: italic;
+      margin-top: 1.5rem;
+    }
 
-        .contact-label {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-value {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .contact-value a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-value a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.7s both;
-        }
-
-        .social-link {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
-        }
-
-        .decorative-line {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-            margin: 2rem 0;
-            border-radius: 2px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            body::before {
-                display: none;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .back-button {
-                top: 1rem;
-                left: 1rem;
-                padding: 0.8rem 1.2rem;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
-            
-            .contact-card {
-                padding: 2rem;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
-            
-            .contact-header h1 {
-                font-size: 2rem;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            
-            .contact-details {
-                text-align: center;
-            }
-            
-            .social-links {
-                gap: 1rem;
-            }
-            
-            .social-link {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0.5rem;
-            }
-            
-            .contact-card {
-                padding: 1.5rem;
-                margin: 1rem auto;
-            }
-            
-            .contact-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .contact-header p {
-                font-size: 1rem;
-            }
-            
-            .contact-item {
-                padding: 1rem;
-            }
-        }
-    </style>
+    @media (max-width: 480px) {
+      .container { padding: 2rem 1rem 3rem; }
+    }
+  </style>
 </head>
 <body>
-    <a href="../index.html" class="back-button">
-        <span>←</span> Back to Portfolio
-    </a>
+  <div class="container">
+    <a href="../index.html" class="back-btn">← Back to Portfolio</a>
 
-    <div class="container">
-        <div class="contact-card">
-            <div class="contact-header">
-                <h1>Contact Me</h1>
-                <p>Let's connect! Feel free to reach out through any of these channels.</p>
-            </div>
-
-            <div class="decorative-line"></div>
-
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-details">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">Available upon request</div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-details">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">
-                            <a href="mailto:hayricemsivas@gmail.com">hayricemsivas@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">▶️</div>
-                    <div class="contact-details">
-                        <div class="contact-label">YouTube</div>
-                        <div class="contact-value">
-                            <a href="https://www.youtube.com/@CemOver" target="_blank">CemOver</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">💻</div>
-                    <div class="contact-details">
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-value">
-                            <a href="https://github.com/cemsvs" target="_blank">cemsvs</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <div class="contact-label">Location</div>
-                        <div class="contact-value">Samsun, Turkey</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="decorative-line"></div>
-
-            <div class="social-links">
-                <a href="https://www.youtube.com/@CemOver" target="_blank" class="social-link" title="YouTube">
-                    ▶️
-                </a>
-                <a href="https://github.com/cemsvs" target="_blank" class="social-link" title="GitHub">
-                    💻
-                </a>
-                <a href="mailto:hayricemsivas@gmail.com" class="social-link" title="Email">
-                    ✉️
-                </a>
-            </div>
-        </div>
+    <div class="page-header">
+      <h1>Contact</h1>
+      <p>Best ways to reach me — pick whichever works for you.</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click-to-copy functionality for email
-            const emailLink = document.querySelector('a[href^="mailto:"]');
-            if (emailLink) {
-                emailLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const email = 'hayricemsivas@gmail.com';
-                    navigator.clipboard.writeText(email).then(() => {
-                        // Show a temporary notification
-                        const originalText = this.textContent;
-                        this.textContent = 'Copied!';
-                        this.style.color = '#4ade80';
-                        setTimeout(() => {
-                            this.textContent = originalText;
-                            this.style.color = '';
-                        }, 2000);
-                    });
-                });
-            }
+    <div class="contact-list">
 
-            // Enhanced hover effects
-            const contactItems = document.querySelectorAll('.contact-item');
-            contactItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
+      <a href="mailto:hayricemsivas@gmail.com" class="contact-item" id="email-item">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-value accent">hayricemsivas@gmail.com</div>
+        </div>
+      </a>
 
-            // Social link hover effects
-            const socialLinks = document.querySelectorAll('.social-link');
-            socialLinks.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.1) rotateZ(5deg)';
-                });
-                
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1) rotateZ(0deg)';
-                });
-            });
-        });
-    </script>
+      <a href="https://github.com/cemsvs" target="_blank" class="contact-item">
+        <div class="ci-icon">💻</div>
+        <div>
+          <div class="ci-label">GitHub</div>
+          <div class="ci-value">cemsvs</div>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/@CemOver" target="_blank" class="contact-item">
+        <div class="ci-icon">▶️</div>
+        <div>
+          <div class="ci-label">YouTube</div>
+          <div class="ci-value">@CemOver</div>
+        </div>
+      </a>
+
+      <a href="https://cemgo.itch.io/veinlight" target="_blank" class="contact-item">
+        <div class="ci-icon">🎮</div>
+        <div>
+          <div class="ci-label">itch.io — VeinLight</div>
+          <div class="ci-value">cemgo.itch.io/veinlight</div>
+        </div>
+      </a>
+
+      <div class="contact-item" style="cursor: default;">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Location</div>
+          <div class="ci-value">Samsun, Turkey</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="copy-note" id="copy-note">Click the email address to copy it to clipboard</p>
+  </div>
+
+  <script>
+    document.getElementById('email-item').addEventListener('click', function (e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('hayricemsivas@gmail.com').then(function () {
+        var note = document.getElementById('copy-note');
+        note.textContent = '✓ Copied to clipboard!';
+        note.style.color = '#3a9178';
+        setTimeout(function () {
+          note.textContent = 'Click the email address to copy it to clipboard';
+          note.style.color = '';
+        }, 2500);
+      }).catch(function () {
+        window.location.href = 'mailto:hayricemsivas@gmail.com';
+      });
+    });
+  </script>
 </body>
 </html>
