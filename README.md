@@ -2,8 +2,6 @@
 
 Personal portfolio site. Third version — built from scratch twice, this time with a cleaner head.
 
-Live at: **[your domain here]**
-
 ---
 
 ## What's in here
