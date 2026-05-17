@@ -2,6 +2,8 @@
 
 Personal portfolio site. Third version — built from scratch twice, this time with a cleaner head.
 
+**[🔴 Live Site: cemsvs.github.io](https://cemsvs.github.io/)**
+
 ---
 
 ## What's in here
@@ -49,8 +51,8 @@ portfolio/
 ## Running locally
 
 ```bash
-git clone https://github.com/cemsvs/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/cemsvs/cemsvs.github.io.git
+cd cemsvs.github.io
 
 # any static server works, or just open the file directly
 python -m http.server 8000
@@ -88,7 +90,7 @@ Skills and project content are all in `index.html` — straightforward to edit. 
 
 ## Featured: VeinLight
 
-Most of the portfolio exists to point at this. VeinLight is a survival horror roguelite I've been building solo in Unity — microphone-based gameplay, daily quota system, a cave troll that hunts you if you fail. Currently in alpha.
+Most of the portfolio exists to point at this. VeinLight is a survival horror roguelite I've been building solo under my studio SoloMaestro in Unity — microphone-based gameplay, daily quota system, a cave troll that hunts you if you fail. Currently in alpha.
 
 - itch.io: [cemgo.itch.io/veinlight](https://cemgo.itch.io/veinlight)
 - Steam: [store.steampowered.com/app/4291310/VeinLight](https://store.steampowered.com/app/4291310/VeinLight)
